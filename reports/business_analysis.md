@@ -126,6 +126,37 @@ This demonstrates the importance of consistent data types, grouping rules, and m
 
 该案例说明，在跨工具数据分析中，统一数据类型、分组规则及指标口径对于保证结果一致性非常重要。
 
+
+### Data Quality Check Results / 数据质量检查结果
+
+The cleaned dataset was validated using SQL to assess missing values, invalid transactions, revenue calculations, date consistency, and duplicate records.
+
+使用 SQL 对清洗后的数据进行质量检查，涵盖缺失值、异常交易、销售额计算、日期一致性及重复记录。
+
+| Check / 检查项目 | Result / 结果 |
+|---|---:|
+| Total Transaction Lines / 交易明细总数 | 524,878 |
+| Missing CustomerID / 客户编号缺失 | 132,186 (25.18%) |
+| Missing Descriptions / 商品描述缺失 | 0 |
+| Invalid Quantities / 非正数购买数量 | 0 |
+| Invalid Prices / 非正数商品价格 | 0 |
+| Revenue Calculation Mismatches / 销售额计算不一致 | 0 |
+| Date Mismatches / 日期不一致 | 0 |
+| Exact Duplicate Groups / 完全重复记录组合 | 0 |
+| Extra Duplicate Rows / 多余重复记录 | 0 |
+
+The validation found no invalid quantities, invalid prices, revenue calculation mismatches, date mismatches, or exact duplicates under the defined comparison rules.
+
+按照本项目的检查规则，未发现非正数数量、非正数价格、销售额计算不一致、日期不一致或完全重复记录。
+
+However, 25.18% of transaction lines have missing CustomerID values. These records were retained for overall sales analysis but excluded from customer-level analysis.
+
+但是，25.18% 的交易明细缺少客户编号。这些记录仍用于整体销售分析，但不参与客户级别的行为分析。
+
+All six baseline business metrics passed automated SQL validation.
+
+六项核心业务指标均通过 SQL 自动化基准验证。
+
 ## 8. Limitations / 分析局限性
 
 The dataset does not contain browsing, add-to-cart, or other website interaction events.

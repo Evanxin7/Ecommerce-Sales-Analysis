@@ -216,6 +216,73 @@ python scripts/08_monthly_growth_chart.py
 python scripts/09_rfm_visualization.py
 ```
 
+
+### Recommended Execution Order / 推荐执行顺序
+
+Run the Python scripts from the project root directory.
+请在项目根目录下执行 Python 脚本。
+
+**1. Data Preparation / 数据准备**
+
+```powershell
+python scripts/01_data_exploration.py
+python scripts/02_data_cleaning.py
+```
+
+**2. Sales and Product Analysis / 销售与商品分析**
+
+```powershell
+python scripts/03_sales_analysis.py
+python scripts/04_product_analysis.py
+python scripts/05_outlier_analysis.py
+```
+
+**3. Database Import / 数据库导入**
+
+Create the MySQL database before importing the cleaned dataset.
+导入清洗后的数据前，需要先创建 MySQL 数据库。
+
+```powershell
+python scripts/07_import_mysql.py
+```
+
+The import script is intended for an empty sales table. Do not rerun it against an existing table without checking the database state.
+
+导入脚本适用于尚未创建 sales 表的数据库。已有数据表时，请先检查数据库状态，不要重复导入。
+
+**4. SQL Analysis / SQL 分析**
+
+Open and run the SQL files in MySQL Workbench, following their numerical order.
+
+在 MySQL Workbench 中按编号依次执行 sql 文件夹内的 SQL 文件。
+
+The RFM segmentation script creates the rfm_segment_summary view required by the final visualization.
+
+RFM 客户分层脚本会创建 rfm_segment_summary 视图，最终的客户分层图表依赖该视图。
+
+**5. Visualization / 数据可视化**
+
+```powershell
+python scripts/08_monthly_growth_chart.py
+python scripts/09_rfm_visualization.py
+```
+
+**6. Validation / 数据验证**
+
+Run the following SQL scripts to verify business metrics and data quality:
+
+执行以下 SQL 脚本，验证核心业务指标及数据质量：
+
+- sql/08_validation_checks.sql
+- sql/09_data_quality.sql
+
+**Optional SQLite Script / 可选 SQLite 脚本**
+
+scripts/06_prepare_sqlite.py provides an optional local SQLite workflow and is not required for MySQL analysis.
+
+06_prepare_sqlite.py 用于可选的本地 SQLite 流程，MySQL 分析无需执行该脚本。
+
+
 ## 9. Limitations / 分析局限性
 
 - The dataset does not include browsing or shopping-cart behavior.
