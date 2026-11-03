@@ -3,6 +3,33 @@
 
 An end-to-end e-commerce analytics project covering data cleaning, SQL analysis, sales visualization, customer behavior analysis, and RFM segmentation.
 
+## Project Highlights / 项目亮点
+
+本项目基于真实电商交易数据，完成数据清洗、销售分析、商品分析、客户行为分析、RFM 客户分层及数据质量验证。
+
+This project demonstrates an end-to-end analytics workflow using Python, MySQL, SQL, and data visualization.
+
+| Key Metric / 核心指标 | Result / 结果 |
+|---|---:|
+| Cleaned Transaction Lines / 清洗后交易明细 | 524,878 |
+| Unique Orders / 独立订单数 | 19,960 |
+| Positive Transaction Revenue / 正向交易销售额 | £10.64M |
+| Identified Customers / 可识别客户数 | 4,338 |
+| Repeat Customer Rate / 观察期复购客户占比 | 65.58% |
+
+**Key Insight / 核心发现**
+
+High-value active customers account for 20.65% of identifiable customers but contribute approximately 63.4% of identifiable customer positive transaction revenue.
+
+高价值活跃客户仅占可识别客户的 20.65%，却贡献约 63.4% 的可识别客户正向交易销售额，反映出明显的客户消费贡献集中现象。
+
+**Project Deliverables / 项目成果**
+
+- [Business Analysis Report / 完整业务分析报告](reports/business_analysis.md)
+- [Python Scripts / Python 分析代码](scripts/)
+- [SQL Queries / SQL 分析脚本](sql/)
+- [Visualizations / 数据可视化图表](reports/figures/)
+
 ## 1. Project Overview / 项目介绍
 
 本项目基于英国在线零售商的真实交易数据，使用 Python 和 MySQL 构建从原始数据处理到业务洞察的完整分析流程。
@@ -286,7 +313,7 @@ scripts/06_prepare_sqlite.py provides an optional local SQLite workflow and is n
 ## 9. Limitations / 分析局限性
 
 - The dataset does not include browsing or shopping-cart behavior.
-  数据集不包含浏览或购物车行为。
+  数据集不包含浏览或购物车行为。/
 - Missing CustomerID values limit customer-level analysis coverage.
   部分 CustomerID 缺失，限制了客户层面分析的覆盖范围。
 - Returns, refunds, and financial adjustments are not fully reconciled.
